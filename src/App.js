@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route, Router} from "react-router-dom";
+// import "./app.css"
+import Maps from "../src/pages/Maps";
+import Login from "../src/pages/Login";
+import Dashboard from "./pages/Dashboard";
+import MapsGeo from "./pages/MapsGeo";
+// import GeoJson from "./components/GeoJsonComponent/GeoJson";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Maps/>}/>
+      <Route path="/admin" element={<Login/>}/>
+      <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/geo" element={<MapsGeo/>}/>
+      {/* <Route path="/MapsGeo" element={<GeoJson/>}/> */}
+    </Routes>
   );
 }
 
