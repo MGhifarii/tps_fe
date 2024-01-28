@@ -44,7 +44,7 @@ const Modal = props => {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [deskripsi, setDeskripsi] = useState("");
-  const [wilayah, setWilayah] = useState("");
+  const [kelurahan, setKelurahan] = useState("");
   const [sampah_masuk, setSampah_masuk] = useState("");
   const [error, setError] = useState("");
 
@@ -68,7 +68,7 @@ const Modal = props => {
     setLatitude(res.data.latitude);
     setLongitude(res.data.longitude);
     setDeskripsi(res.data.deskripsi);
-    setWilayah(res.data.wilayah);
+    setKelurahan(res.data.kelurahan);
     setSampah_masuk(res.data.sampah_masuk);
     
   }
@@ -85,7 +85,7 @@ const Modal = props => {
         latitude,
         longitude,
         deskripsi,
-        wilayah,
+        kelurahan,
         sampah_masuk,
       
       },
@@ -112,7 +112,7 @@ const Modal = props => {
         latitude,
         longitude,
         deskripsi,
-        wilayah,
+        kelurahan,
         sampah_masuk, 
         
       },
@@ -187,13 +187,13 @@ const Modal = props => {
           value={longitude}
           placeholder='Masukkan Longitude'
           /><br/>
-          <label>Wilayah</label><br/>
+          <label>kelurahan</label><br/>
           <input 
           type="text" 
-          name="wilayah"
-          onChange={(e) => setWilayah(e.target.value)}
-          value={wilayah} 
-          placeholder='Masukkan Wilayah'
+          name="kelurahan"
+          onChange={(e) => setKelurahan(e.target.value)}
+          value={kelurahan} 
+          placeholder='Masukkan kelurahan'
           /><br/>
           <label>Sampah masuk</label><br/>
           <input 

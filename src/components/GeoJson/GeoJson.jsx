@@ -4,24 +4,34 @@ import data from "../../data_geojson.json";
 import { GeoJSON } from "react-leaflet";
 
 const GeoJson = (props) => {
-//   const checkKlasifikasi = async (kecamatan, category = null) => {
-//     const {data:klasifikasi} = await axios.get(`/analisis/check/${kecamatan}/${category ? category : ""}`);
+//   const checkKlasifikasi = async (kecamatan) => {
+//     const {data:klasifikasi} = await axios.get(`/analisis/check/${kecamatan}`);
 //     return klasifikasi.response;
 // };
-//   const getJumlah = async (kecamatan) => {
-//     const {data:jumlah} = await axios.get(`/analisis/jumlah/${kecamatan}`);
-//     return jumlah.response;
-//   };
+  const getJumlah = async (kecamatan) => {
+    const {data:jumlah} = await axios.get(`/analisis/jumlah/${kecamatan}`);
+    return jumlah.response;
+  };
 
+  const jmlhSampahMasuk = async (kecamatan) => {
+    const {data:jumlahSampah} = await axios.get(`/analisis/jumlahSampah/${kecamatan}`);
+    return jumlahSampah.response[0]
+  }
+  console.log(props)
   const onEachContry = async (feature, layer) =>{
     layer.options.color = "grey";  
     layer.options.weight = 1; 
     layer.options.fillOpacity = 0.2;
     const contryName = feature.properties.KECAMATAN;
-    const jumlah = await(contryName);
+    const jumlah = await getJumlah(contryName);
+    const sampah = await jmlhSampahMasuk(contryName);
+    console.log("test");
+    console.log(sampah);
+
     var klasifikasi = ''
-    klasifikasi = await(contryName);
-    if (klasifikasi === "Banyak"){
+    klasifikasi = await jmlhSampahMasuk(contryName);
+    // console.log(props)
+    if (sampah?.sampahMasuk < 50){
       layer.setStyle({
         fillColor: '#3CFF33',
         fillOpacity: 0.4,
@@ -29,7 +39,7 @@ const GeoJson = (props) => {
       // layer.options.fillColor = '#3CFF33';
       // layer.options.fillOpacity = 0.4;
     }
-    else if (klasifikasi === "Sedikit"){
+    else if (sampah?.sampahMasuk < 100){
       layer.setStyle({
         fillColor: '#FF3333',
         fillOpacity: 0.4,
@@ -37,7 +47,23 @@ const GeoJson = (props) => {
       // layer.options.fillColor = '#FF3333';
       // layer.options.fillOpacity = 0.4;
     }
-    else{
+    else if (sampah?.sampahMasuk < 150){
+      layer.setStyle({
+        fillColor: '#CD853F',
+        fillOpacity: 0.4,
+      });
+      // layer.options.fillColor = '#FF3333';
+      // layer.options.fillOpacity = 0.4;
+    }
+    else if (sampah?.sampahMasuk < 200){
+      layer.setStyle({
+        fillColor: '#9400d3',
+        fillOpacity: 0.4,
+      });
+      // layer.options.fillColor = '#FF3333';
+      // layer.options.fillOpacity = 0.4;
+    }
+    else  {
       layer.setStyle({
         fillColor: '#E3FF33',
         fillOpacity: 0.4,
@@ -63,7 +89,7 @@ const GeoJson = (props) => {
               <tr>
                 <td>Jumlah Sampah Masuk (±M³/Hari)</td>
                 <td>:</td>
-                <td>${klasifikasi}</td>
+                <td>${sampah?.sampahMasuk}</td>
               </tr>
             </table>
         </Popup>
@@ -92,7 +118,7 @@ const GeoJson = (props) => {
               <tr>
                 <td>Jumlah Sampah Masuk(±M³/Hari)</td>
                 <td>:</td>
-                <td>${klasifikasi}</td>
+                <td>${sampah?.sampahMasuk}</td>
               </tr>
             </table>
         </Popup>

@@ -60,7 +60,7 @@ const SearchMarker = ({data}) => {
             icon={customIcon}
           >
             <Popup>
-            {data.nama} <br/> {data.wilayah} <br/>  
+            {data.nama} <br/> {data.kelurahan} <br/>  
             <button style={{ background: 'transparent', border: 'none', color: 'blue', cursor: 'pointer' }} 
             onClick={() => func(data)}>
               Dapatkan Arah dengan Google Maps

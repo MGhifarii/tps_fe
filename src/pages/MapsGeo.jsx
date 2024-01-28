@@ -53,15 +53,16 @@ import Header from "../components/Header/Header";
 
     useEffect(() => {
       getTps();
-      // getCategories();
-      // checkIsLogin();
+      // getCategories();1
+      // checkIsLogin();1
       // getBatas();
     }, []);
-
+    console.log(tps)
     const getTps = async () => {
       try{
         const dataTps = await axios.get("http://localhost:5000/api/tps");
           setTps(dataTps.data.data);
+          console.log(dataTps)
         }catch(e){
         // console.log(e);
         }

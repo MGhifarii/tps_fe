@@ -44,6 +44,7 @@ import GeoJson from '../GeoJson/GeoJson';
 
 
 const MapGeo = (props) => {
+  console.log(props.data)
 return (
     <div className={style.Map}>
     <MapContainer  className={style.leaflet_container} center={[-6.908775426573443, 107.64318087144039]} zoom={13} style={{ height: '100vh', width: '100vw' }}>

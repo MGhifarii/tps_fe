@@ -37,13 +37,13 @@ const Header = () => {
                 <ul className='d-flex'>
                     <li><a href="/admin">Admin</a></li>
                     <li><a href="/">Home</a></li>
-                    <li className={style.dropdown}>
+                    {/* <li className={style.dropdown}>
                         <a href='/geo' className={style.dropbtn}>Peta</a>
                         <div className={style.dropdowncontent}>
                             <a href="">Poligon</a>
                             <a href="#">Marker</a>
                         </div>
-                    </li>
+                    </li> */}
                 </ul>   
                 </div>
             </div>

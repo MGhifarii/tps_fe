@@ -107,10 +107,10 @@ import Header from "../components/Header/Header";
             <div className={style.form_search}>
               <input value={value} onChange={onChangeSearch} type="search" name="search" placeholder="&#xf002;  Search..."/>
             </div>
-              {/* {tps.filter(item => {
-                const searchTerm = value();
-                const nama_tps = item.nama();
-                const kecamatan = item.kecamatan();
+              {tps.filter(item => {
+                const searchTerm = value.toLocaleLowerCase();
+                const nama_tps = item.nama.toLocaleLowerCase();
+                const kecamatan = item.kecamatan.toLocaleLowerCase();
 
                 // if (searchTerm === nama_tps || searchTerm === kecamatan){
                 //   return item;
@@ -127,10 +127,10 @@ import Header from "../components/Header/Header";
                   {item.nama}<br/>
                   <span>{item.kecamatan}</span>
                 </div>
-              ))} */}
+              ))}
             </div>
             <div class={style.dropdown}>
-              <button class={style.dropbtn}>Pilih Peta <i class="fa fa-sort-desc" aria-hidden="true"></i></button>
+              <button class={style.dropbtn}>Pilih Peta </button>
               <div class={style.dropdown_content}>
                 <a href="/geo">Poligon</a>
                 <a href="/">Marker</a>
