@@ -56,16 +56,9 @@ const ListTps = () => {
   return (
     <div className={style.container}>
         <div className={style.button_container}>
-            <input type="search" name="search" placeholder="&#xf002;  Cari Tps" onChange={onSearch}/>
             <div className={style.button}>
                 <button className={style.add_tps}  onClick = {() => [setShow(true), setTitle('Form Penambahan Tps'), setId('')]}>
                     Tambah Data
-                </button>
-                <button className={style.export_button} onClick = {exportHandle}>
-                    Export Ke PDF
-                </button>
-                <button className={style.import_button} /*onClick = {() => setShowImport(true)}*/>
-                    Import Data
                 </button>
             </div>
         </div>

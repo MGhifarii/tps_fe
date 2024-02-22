@@ -44,10 +44,24 @@
     right: 0;
     margin-top: 20px;
     margin-right: 20px;
-    z-index: 10;
     font-size: 12px;
   }
   
+  .indikator {
+    position: absolute;
+    right: 30px;
+    margin-right: 10px;
+    z-index: 10;
+    font-size: 12px;  
+    background-color: #c4dfc3b9;
+  }
+
+  .warna {
+    height: 150px;
+    width: 150px;
+
+  }
+
   .bottomleft {
     position: absolute;
     padding: 10px;

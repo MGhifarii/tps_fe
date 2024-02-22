@@ -52,7 +52,7 @@ const Dashboard = () => {
             <div className={style.data_container}>
                 <div className={style.navbar}>
                     <button className={style.nav_button} onClick={() => {setTps(true)}}>
-                        Daftar TPS
+                        Daftar TPS Kota Bandung
                     </button>
                 </div>
                 {tps ? <ListTps/> : null}

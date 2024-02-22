@@ -20,7 +20,7 @@
     .button{
       display: flex;
       flex-direction: row-reverse;
-      width: 300px;
+      width: 110px;
       justify-content: space-between;
     }
   
@@ -45,10 +45,10 @@
       height: auto;
       font-weight: bold;
       font-size: 16;
-      color: #1E1E1E;
+      color: #fafafa;
       border: none;
       border-radius: 5px;
-      background-color: white;
+      background-color: rgb(52, 199, 64);
       padding: 5px;
     }
   
@@ -76,6 +76,7 @@
   
       .button_container input{
         width: 90%;
+        margin-left: 10px;
       }
   
       .button{
@@ -92,8 +93,10 @@
         width: 30%;
       }
   
-      .add_restoran{
-        margin-right: 0px;
+      .add_tps{
+        position: relative;
+        margin-right: 250px;
+        width: 20px;
       }
     }
   

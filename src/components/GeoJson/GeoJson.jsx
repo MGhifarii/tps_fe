@@ -33,7 +33,7 @@ const GeoJson = (props) => {
     // console.log(props)
     if (sampah?.sampahMasuk < 50){
       layer.setStyle({
-        fillColor: '#3CFF33',
+        fillColor: '#20A100',
         fillOpacity: 0.4,
       });
       // layer.options.fillColor = '#3CFF33';
@@ -41,7 +41,7 @@ const GeoJson = (props) => {
     }
     else if (sampah?.sampahMasuk < 100){
       layer.setStyle({
-        fillColor: '#FF3333',
+        fillColor: '#74FF25',
         fillOpacity: 0.4,
       });
       // layer.options.fillColor = '#FF3333';
@@ -49,7 +49,7 @@ const GeoJson = (props) => {
     }
     else if (sampah?.sampahMasuk < 150){
       layer.setStyle({
-        fillColor: '#CD853F',
+        fillColor: '#FFF500',
         fillOpacity: 0.4,
       });
       // layer.options.fillColor = '#FF3333';
@@ -57,15 +57,24 @@ const GeoJson = (props) => {
     }
     else if (sampah?.sampahMasuk < 200){
       layer.setStyle({
-        fillColor: '#9400d3',
+        fillColor: '#E58200',
         fillOpacity: 0.4,
       });
       // layer.options.fillColor = '#FF3333';
       // layer.options.fillOpacity = 0.4;
     }
+    else if (sampah?.sampahMasuk > 200){
+      layer.setStyle({
+        fillColor: '#FF0000',
+        fillOpacity: 0.4,
+      });
+      // layer.options.fillColor = '#FF3333';
+      // layer.options.fillOpacity = 0.4;
+    }
+
     else  {
       layer.setStyle({
-        fillColor: '#E3FF33',
+        fillColor: '#000000',
         fillOpacity: 0.4,
       });
       // layer.options.fillColor = '#E3FF33';

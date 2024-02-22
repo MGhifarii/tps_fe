@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import MapGeo from "../components/Maps/MapGeo";
 import Header from "../components/Header/Header";
+import Indikator from "../icons/Indikator.png"
+import Logo from "../icons/Logo.png"
 
   export default function MapsGeo() {
     const navigate = useNavigate();
@@ -105,9 +107,6 @@ import Header from "../components/Header/Header";
         <Header/>
         <MapGeo  search={showSearch} data={tps} dataSearch={dataSearch}/>
         <div className={style.topleft}>
-            <div className={style.form_search}>
-              <input value={value} onChange={onChangeSearch} type="search" name="search" placeholder="&#xf002;  Search..."/>
-            </div>
             
             {/* <div className={style.dropdown}>
               {tps.filter(item => {
@@ -140,6 +139,14 @@ import Header from "../components/Header/Header";
             <a href="/">Marker</a>
           </div>
         </div>
+        <div class={style.indikator}>
+          <img class={style.warna} src={Indikator} alt="Indikator"/>
+        </div>
+        
+        {/* <div class="col">
+          <img className={style.logo} src={Indikator} alt="Indikator"/>
+        </div> */}
+        
         {/* <div className={style.topright}> 
           {isLogin ? 
           <button className={style.login} onClick={event => handleClickDashboard(event)}>
