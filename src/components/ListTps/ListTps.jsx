@@ -23,20 +23,20 @@ const ListTps = () => {
         setTps(dataTps.data.data);
     };
 
-    const onSearch = async (e) => {
-        const dataTps = await axios.get(`/tps?search=${e.target.value}`);
-        setTps(dataTps.data.data);
-    };
+    // const onSearch = async (e) => {
+    //     const dataTps = await axios.get(`/tps?search=${e.target.value}`);
+    //     setTps(dataTps.data.data);
+    // };
 
-    const exportHandle = async () => {
-        axios.get('/export/create-pdf')
-        .then(() => axios.get('/export/fetch-pdf', { responseType: 'blob' }))
-        .then((res) => {
-            const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+    // const exportHandle = async () => {
+    //     axios.get('/export/create-pdf')
+    //     .then(() => axios.get('/export/fetch-pdf', { responseType: 'blob' }))
+    //     .then((res) => {
+    //         const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
 
-            saveAs(pdfBlob, 'data.pdf');
-        });
-    };
+    //         saveAs(pdfBlob, 'data.pdf');
+    //     });
+    // };
 
     const deleteTps = async (id) => {
         try {
@@ -99,3 +99,4 @@ const ListTps = () => {
 }
 
 export default ListTps
+

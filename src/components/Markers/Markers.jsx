@@ -47,7 +47,6 @@ const Markers = (props) => {
 
     return (
       props.data.map((marker, index) => {
-        // {console.log(marker)}
         return (
           <Marker
             ref={markerRef}

@@ -23,6 +23,7 @@ const Modal = props => {
     'Cibeunying Kidul',
     'Cibiru',
     'Cicendo',
+    'Cidadap',
     'Cinambo',
     'Coblong',
     'GedeBage',
@@ -215,3 +216,4 @@ const Modal = props => {
 }
 
 export default Modal
+

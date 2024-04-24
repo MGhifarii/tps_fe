@@ -3,11 +3,17 @@ import axios from "axios";
 import data from "../../data_geojson.json";
 import { GeoJSON } from "react-leaflet";
 
+
 const GeoJson = (props) => {
 //   const checkKlasifikasi = async (kecamatan) => {
 //     const {data:klasifikasi} = await axios.get(`/analisis/check/${kecamatan}`);
 //     return klasifikasi.response;
 // };
+  const getBatas = async () => {
+    const dataBatas = await axios.get('/analisis/sd');
+    console.log(dataBatas.data);
+    return dataBatas.data;
+  }
   const getJumlah = async (kecamatan) => {
     const {data:jumlah} = await axios.get(`/analisis/jumlah/${kecamatan}`);
     return jumlah.response;
@@ -18,6 +24,7 @@ const GeoJson = (props) => {
     return jumlahSampah.response[0]
   }
   console.log(props)
+
   const onEachContry = async (feature, layer) =>{
     layer.options.color = "grey";  
     layer.options.weight = 1; 
@@ -25,13 +32,15 @@ const GeoJson = (props) => {
     const contryName = feature.properties.KECAMATAN;
     const jumlah = await getJumlah(contryName);
     const sampah = await jmlhSampahMasuk(contryName);
-    console.log("test");
-    console.log(sampah);
+    const batas = await getBatas();
+    console.log(batas)
+
+    // console.log(sampah);
 
     var klasifikasi = ''
     klasifikasi = await jmlhSampahMasuk(contryName);
     // console.log(props)
-    if (sampah?.sampahMasuk < 50){
+    if (sampah?.sampahMasuk < batas?.batasBawah){
       layer.setStyle({
         fillColor: '#20A100',
         fillOpacity: 0.4,
@@ -39,15 +48,7 @@ const GeoJson = (props) => {
       // layer.options.fillColor = '#3CFF33';
       // layer.options.fillOpacity = 0.4;
     }
-    else if (sampah?.sampahMasuk < 100){
-      layer.setStyle({
-        fillColor: '#74FF25',
-        fillOpacity: 0.4,
-      });
-      // layer.options.fillColor = '#FF3333';
-      // layer.options.fillOpacity = 0.4;
-    }
-    else if (sampah?.sampahMasuk < 150){
+    else if (sampah?.sampahMasuk < batas?.batasAtas){
       layer.setStyle({
         fillColor: '#FFF500',
         fillOpacity: 0.4,
@@ -55,15 +56,7 @@ const GeoJson = (props) => {
       // layer.options.fillColor = '#FF3333';
       // layer.options.fillOpacity = 0.4;
     }
-    else if (sampah?.sampahMasuk < 200){
-      layer.setStyle({
-        fillColor: '#E58200',
-        fillOpacity: 0.4,
-      });
-      // layer.options.fillColor = '#FF3333';
-      // layer.options.fillOpacity = 0.4;
-    }
-    else if (sampah?.sampahMasuk > 200){
+    else if (sampah?.sampahMasuk > batas?.batasAtas){
       layer.setStyle({
         fillColor: '#FF0000',
         fillOpacity: 0.4,
@@ -71,6 +64,22 @@ const GeoJson = (props) => {
       // layer.options.fillColor = '#FF3333';
       // layer.options.fillOpacity = 0.4;
     }
+    // else if (sampah?.sampahMasuk < 200){
+    //   layer.setStyle({
+    //     fillColor: '#E58200',
+    //     fillOpacity: 0.4,
+    //   });
+    //   // layer.options.fillColor = '#FF3333';
+    //   // layer.options.fillOpacity = 0.4;
+    // }
+    // else if (sampah?.sampahMasuk > 200){
+    //   layer.setStyle({
+    //     fillColor: '#FF0000',
+    //     fillOpacity: 0.4,
+    //   });
+    //   // layer.options.fillColor = '#FF3333';
+    //   // layer.options.fillOpacity = 0.4;
+    // }
 
     else  {
       layer.setStyle({

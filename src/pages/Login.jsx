@@ -164,6 +164,7 @@ const Login = () => {
       navigate("/dashboard");
     } catch (error) {
       console.error(error)
+      alert('username atau password yang anda masukan salah');
       // error.data[0] ? setError(error.data[0].message) : setError(error.data.message);
     }
     

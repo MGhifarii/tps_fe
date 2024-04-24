@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import MapGeo from "../components/Maps/MapGeo";
 import Header from "../components/Header/Header";
-import Indikator from "../icons/Indikator.png"
+import Indikator from "../icons/Legenda.png";
 import Logo from "../icons/Logo.png"
 
   export default function MapsGeo() {

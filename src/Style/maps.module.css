@@ -50,15 +50,19 @@
   .indikator {
     position: absolute;
     right: 30px;
+    bottom: px;
     margin-right: 10px;
     z-index: 10;
     font-size: 12px;  
-    background-color: #c4dfc3b9;
+    background-color: #c4dfc3d2;
+    border-radius: 10px;
+    bottom: 30px;
   }
 
   .warna {
     height: 150px;
-    width: 150px;
+    width: 180px;
+    padding: 10px;
 
   }
 
@@ -240,10 +244,11 @@
     margin: 2px 0;
     padding: 3px;
     font-size: 14px;
+    background-color:rgba(205, 205, 205, 0.8);
   }
   
   .dropdown_row:hover{
-    background-color: rgba(205, 205, 205, 0.8);
+    background-color: rgba(25, 231, 36, 0.784);
   }
   
   .dropdown_row span{

@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import Map from "../components/Maps/Map";
 import Header from "../components/Header/Header";
+import Search from "../icons/search.png"
 
   export default function Maps() {
     const navigate = useNavigate();
@@ -105,7 +106,7 @@ import Header from "../components/Header/Header";
         <Map  search={showSearch} data={tps} dataSearch={dataSearch}/>
         <div className={style.topleft}>
             <div className={style.form_search}>
-              <input value={value} onChange={onChangeSearch} type="search" name="search" placeholder="&#xf002;  Search..."/>
+              <input value={value} onChange={onChangeSearch} type="search" name="search" placeholder="Search..."/>
             </div>
               {tps.filter(item => {
                 const searchTerm = value.toLocaleLowerCase();
@@ -170,3 +171,6 @@ import Header from "../components/Header/Header";
       </div>
     );
   }
+
+
+
